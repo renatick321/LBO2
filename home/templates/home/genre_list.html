@@ -1,0 +1,8 @@
+{% extends "home/base.html" %}
+
+{% block main_content %}{% spaceless %}
+
+{% for genre in genres %}
+<a href="{% url 'home:get_genre' genre.slug %}" class="objects_list">{{genre}}</a>
+{% endfor %}
+{% endspaceless %}{% endblock %}

@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{human.username}}</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/media_queries.css' %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/media/images/icon.png" type="image">
+</head>
+<body>
+
+{% include 'home/header.html' %}
+
+<div class="container">
+	<div class="element for_user_img"><!--Первая страница-->
+		<img src="/media/images/silver.png" alt="" class="user_img">
+		<a href="#" class="edit back_inf">Редактировать</a>
+		<div class="back_inf" style="margin: 10px 0 4px 0">Вы являетесь читателем</div>
+	</div>
+	<div class="fixed_inf element">
+	 	<div class="main_inf">
+	 		<p class="username">{{human.username}}</p>
+	 		<div class="user_status back_inf">{{human.status}}</div>
+	 		<div class="manda_inf">
+ 				<ul class="fixed_inf_row" style="border-top: 1px solid lightgrey; padding-top: 15px;">
+ 					<li class="th1">День рождения:</li>
+ 					<li class="th2">{{human.birth_date}}</li>
+ 				</ul>
+ 				<ul class="fixed_inf_row">
+ 					<li class="th1">День регистрации:</li>
+ 					<li class="th2">{{human.date_joined}}</li>
+ 				</ul>
+ 				<ul class="fixed_inf_row" style="border-bottom: 1px solid lightgrey;">
+ 					<li class="th1">Место проживания:</li>
+ 					<li class="th2">{{human.location}}</li>
+ 				</ul>
+	 		</div>
+	 		<header class="user_nav">
+	 			<nav>
+		 			<div class="user_section" onclick="user_nav(0)">Профиль</div>
+			 		<div class="user_section" onclick="user_nav(1)">Произведения</div>
+			 		<div class="user_section" onclick="user_nav(2)">Библеотека</div>
+			 		<div class="user_section" onclick="user_nav(3)">Посты</div>
+			 	</nav>
+		 	</header>
+	 	</div>
+	</div> 
+	{% if human.about_me %}<div class="flex_row about_me element user_full">{{human.about_me}}</div>{% endif %}
+	<div class="favorite flex_row element">
+		<h1 class="is_none">Лучшее по мнению пользователя</h1>
+		<div class="friend_table">
+			<h3>Друзья</h3>
+			<div class="friend">
+				<img src="/media/images/silver.png" alt="" class="friend_img">
+				<div class="friend_name">Имя</div>
+			</div>
+			<div class="friend">
+				<img src="/media/images/silver.png" alt="" class="friend_img">
+				<div class="friend_name">Имя</div>
+			</div>
+			<div class="friend">
+				<img src="/media/images/silver.png" alt="" class="friend_img">
+				<div class="friend_name">Имя</div>
+			</div>
+			<div class="friend">
+				<img src="/media/images/silver.png" alt="" class="friend_img">
+				<div class="friend_name">Имя</div>
+			</div>
+			<div class="friend">
+				<img src="/media/images/silver.png" alt="" class="friend_img">
+				<div class="friend_name">Имя</div>
+			</div>
+			<div class="friend">
+				<img src="/media/images/silver.png" alt="" class="friend_img">
+				<div class="friend_name">Имя</div>
+			</div>
+		</div>
+		<div class="slider_wraper">
+			<div class="favorite_book">
+				<a href=""><img class="img_slide" src="/media/images/silver.png" alt=""></a>
+				<div class="back_inf">Имя автора</div>
+			</div>
+			<div class="favorite_book">
+				<a href=""><img class="img_slide" src="/media/images/silver.png" alt=""></a>
+				<div class="back_inf">Имя автора</div>
+			</div>
+			<div class="favorite_book">
+				<a href=""><img class="img_slide" src="/media/images/silver.png" alt=""></a>
+				<div class="back_inf">Имя автора</div>
+			</div>
+			<div class="favorite_book">
+				<a href=""><img class="img_slide" src="/media/images/silver.png" alt=""></a>
+				<div class="back_inf">Имя автора</div>
+			</div>
+			<div class="favorite_book">
+				<a href=""><img class="img_slide" src="/media/images/silver.png" alt=""></a>
+				<div class="back_inf">Имя автора</div>
+			</div>
+		</div>
+	</div>
+	{% if written %}<div class="library flex_row element"><!--Написанные книги-->
+		<h1>Написанные книги</h1>
+		{% for book in written %}
+			<div class="favorite_book book_m">
+				<a href="{% url 'home:book' book.id %}"><img class="img_slide" src="{{book.image.url}}" alt=""></a>
+				<div class="back_inf">{{book.author_name}}</div>
+			</div>
+		{% endfor %}
+	</div>{% endif %}
+	{% if read %}<div class="library flex_row element"><!--Библеотека-->
+		<h1>Библеотека</h1>
+		{% for book in read %}
+			<div class="favorite_book book_m">
+				<a href="{% url 'home:book' book.id %}"><img class="img_slide" src="{{book.image.url}}" alt=""></a>
+				<div class="back_inf">{{book.author_name}}</div>
+			</div>
+		{% endfor %}
+	</div>{% endif %}
+	{% if read %}<div class="library flex_row element"><!--Посты-->
+		<h1>Посты</h1>
+		{% for book in read %}
+			<div class="favorite_book book_m">
+				<a href="{% url 'home:book' book.id %}"><img class="img_slide" src="{{book.image.url}}" alt=""></a>
+				<div class="back_inf">{{book.author_name}}</div>
+			</div>
+		{% endfor %}
+	</div>{% endif %}
+</div>
+
+{% include 'home/footer.html' %}
+
+<script type="text/javascript" src="{% static 'js/needed.js' %}"></script>
+<script type="text/javascript">
+user_nav(0);
+	function user_nav(n) {
+		let a = document.getElementsByClassName('user_section');
+		let m = document.getElementsByClassName('flex_row');
+		let d = ['flex', 'inline-block', 'inline-block', 'inline-block']
+		for (var i = 0; i <= 3; i++) {
+			a[i].style.color = 'darkgrey';
+		}
+		a[n].style.color = 'black';
+		if (n == 0) {
+			for (var i = 0; i < 3; i++) {
+				m[i].style.display = d[i];
+			}
+			m[3].style.display = 'none';
+		}
+		else{
+			for (var i = 0; i <= 3; i++) {
+				m[i].style.display = 'none';
+			}
+		}
+		m[n].style.display = d[n]
+		document.getElementsByClassName('about_me')[0].style.display = 'none';
+	}
+</script>
+</body>
+</html>

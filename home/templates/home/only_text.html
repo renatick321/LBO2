@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{chapter.title}}</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/media_queries.css' %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/media/images/icon.png" type="image">
+</head>
+<body>
+{% include "home/header.html" %}
+
+
+<pre class="text">
+	<h1>Глава {{chapter.number}}. {{chapter.title}}</h1>
+	{{chapter.text}}
+</pre>
+
+<div style="position: relative; width: 730px; margin: 30px auto; height: 60px">
+{% if back_ %}
+<a class="button" href="{% url 'home:chapter' back_.book_id back_.number %}" style="left: 0">Предыдущая</a>
+{% endif %}
+
+{% if next_ %}
+<a class="button" href="{% url 'home:chapter' next_.book_id next_.number %}" style="right: 0">Следующая</a>
+{% endif %}
+</div>
+
+<style type="text/css">
+	body{
+		background: white;
+	}
+</style>
+
+<script type="text/javascript" src="{% static 'js/needed.js' %}"></script>
+</body>
+</html>

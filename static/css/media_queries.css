@@ -1,0 +1,214 @@
+@media only screen and (max-width: 768px){
+
+	*{
+		-webkit-user-select: none; /* Safari */
+		-ms-user-select: none; /* IE 10+ and Edge */
+		user-select: none; /* Standard syntax */
+	}
+
+
+	.right_left{
+		display: none;
+	}
+
+	.slider_wraper{
+		overflow: scroll;
+		margin-left: 0;
+	}
+	.slider_wraper::-webkit-scrollbar{
+		display: none;
+	}
+
+	.slider{
+		margin: 0 25px 25px 25px;
+		width: calc(100% - 50px);
+	}
+
+	.genre_grid{
+		margin: 0 25px 25px 25px;
+		width: calc(100% - 50px);
+		padding: 10px;
+	}
+
+	.intro{
+		height: 100vh;
+	}
+
+	.intro_img{
+		height: auto;
+	}
+
+	.intro_title{
+		font-size: 70px;
+		width: 300px;
+		margin-top: 250px;
+	}
+
+
+	.nav_link{
+		font-size: 16px;
+		margin-right: 14px;
+	}
+
+	/*Страница с списком книг*/
+
+	.main_column{
+		margin: 60px 20px 0 20px;
+		width: calc(75% - 40px)
+	}
+
+	.second_column{
+		margin-right: 20px;
+		width: calc(25% - 40px)
+	}
+}
+
+@media only screen and (max-width: 400px){
+	.genre_grid{
+		width: 100%;
+		margin: 0;
+	}
+
+	.genre{
+		font-size: 15px;
+		width: 81.375px;
+	}
+
+	.nav_link:hover:after{
+		width: 0;
+	}
+
+	.img_slide{
+		min-width: 90px;
+		min-height: initial;
+		height: 159px;
+		max-width: 111px; 
+	}
+
+	.slide{
+		margin: 0 10px;
+	}
+
+	.slider{
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.description{
+		display: none;
+	}
+
+	.genre_title{
+		font-size: 30px;
+	}
+
+	.slider_wraper{
+		width: calc(100% - 10px);
+		margin: 5px;
+	}
+
+	.img_title{
+		font-size: 13px;
+	}
+
+	.author_name{
+		display: none;
+	}
+
+	.will_none{
+		display: none;
+	}
+
+	.header_title{
+		margin-left: 6px;
+	}
+
+	.nav_link{
+		margin-right: 4px;
+	}
+
+
+	.main_column{
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.section_title{
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.m{
+		margin-left: 5px;
+	}
+
+
+	.container{
+		width: 100%;
+		display: block;
+		margin: 0;
+	}
+
+	.for_user_img{
+		width: 100%;
+		padding-top: 20px;
+		padding-bottom: 10px;
+		margin-bottom: 10px;
+	}
+
+	.favorite{
+		width: 100%;
+	}
+
+	.flex_row{
+		width: 100%;
+		margin-top: 10px;
+	}
+
+	.element{
+		border-radius: 0px;
+	}
+
+	.user_nav > nav {
+		margin-left: 0;
+		position: relative;
+		right: 20px;
+		width: 100%;
+	}
+
+	.user_section{
+		margin-right: 7px;
+	}
+
+	.user_nav{
+		font-size: 16px;
+	}
+
+	.friend_table{
+		display: none;
+	}
+
+	.favorite_books{
+		width: calc(100% - 10px);
+		padding: 5px;
+	}
+
+	.favorite_book{
+		margin: 5px 3px;
+	}
+
+	.is_none{
+		display: block;
+	}
+
+	.favorite{
+		flex-direction: column;
+	}
+
+	.footer{
+		margin-top: 20px;
+	}
+}

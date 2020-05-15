@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LBO</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/media_queries.css' %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/media/images/icon.png" type="image">
+</head>
+<body>
+
+{% include "home/header.html" %}
+
+<div class="intro">
+	<div class="intro_title">Welcome to LBO</div>
+	<a class="read_more" onclick="Read()">Читать</a>
+</div>
+<div style="width: 100%; height: 15px; background: linear-gradient(black, rgb(208,199,186));"></div>
+
+<div class="main">
+	<!--огромный шо пизда код со слайдерами НАЧИНАЕТСЯ-->
+	<div class="slider element">
+		<a href="{% url 'home:popular' %}" class="genre_title">Популярные</a>
+		<div class="description back_inf">Самые популярные произведения от лучших авторов</div>
+		<img onclick="back(0)" src="/media/images/back.png" class="right_left" style="left: 10px">
+
+		<div class="slider_wraper">
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="img_title">Китаец ебанный</div>
+				<div class="author_name">1</div>
+			</div>
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="author_name">2</div>
+			</div>
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="author_name">3</div>
+			</div>
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="author_name">4</div>
+			</div>
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="author_name">5</div>
+			</div>
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="author_name">6</div>
+			</div>
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="author_name">7</div>
+			</div>
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="author_name">8</div>
+			</div>
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="author_name">9</div>
+			</div>
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="author_name">10</div>
+			</div>
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="author_name">11</div>
+			</div>
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="author_name">12</div>
+			</div>
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="author_name">13</div>
+			</div>
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="author_name">14</div>
+			</div>
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="author_name">15</div>
+			</div>
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="author_name">16</div>
+			</div>
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="author_name">17</div>
+			</div>
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="author_name">18</div>
+			</div>
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="author_name">19</div>
+			</div>
+			<div class="slide">
+				<a href="#">
+				<img src="/media/images/book1.jpg" alt="" class="img_slide"></a>
+				<div class="author_name">20</div>
+			</div>
+		</div>
+
+		<img onclick="next(0)" src="/media/images/next.png" class="right_left" style="right: 10px;">
+	</div>
+
+	<div class="genre_grid element">
+		<a href="{% url 'home:get_genre' 'fantastika' %}" class="genre">Фантастика</a>
+		<a href="{% url 'home:get_genre' 'detektiv' %}" class="genre">Детектив</a>
+		<a href="{% url 'home:get_genre' 'popadancy' %}" class="genre">Попаданцы</a>
+		<a href="{% url 'home:get_genre' 'klassika' %}" class="genre">Класика</a>
+		<a href="{% url 'home:get_genre' 'puteshestviya' %}" class="genre">Путешествия</a>
+		<a href="{% url 'home:get_genre' 'roman' %}" class="genre">Роман</a>
+		<a href="{% url 'home:get_genre' 'rasskaz' %}" class="genre">Рассказ</a>
+		<a href="{% url 'home:get_genre' 'boevik' %}" class="genre">Боевик</a>
+		<a href="{% url 'home:get_genre' 'fentezi' %}" class="genre">Фэнтези</a>
+		<a href="{% url 'home:get_genre' 'litrpg' %}" class="genre">ЛитРПГ</a>
+		<a href="{% url 'home:get_genre' 'fanfik' %}" class="genre">Фанфик</a>
+		<a href="{% url 'home:get_genre' 'mistika' %}" class="genre">Мистика</a>
+		<a href="{% url 'home:get_genre' 'uzhasy' %}" class="genre">Ужасы</a>
+		<a href="{% url 'home:get_genre' 'skazka' %}" class="genre">Сказка</a>
+		<a href="{% url 'home:get_genre' 'poeziya' %}" class="genre">Поэзия</a>
+		<a href="{% url 'home:genre_list' %}" class="genre">Ещё</a>
+	</div>	
+
+
+	<!--ЗАКАНЧИВАЕТСЯ-->
+</div>
+
+
+
+<script type="text/javascript" src="{% static 'js/needed.js' %}"></script>
+<script type="text/javascript">
+var allslidecount = 15;
+var slidecount = 5;
+
+function Read() {
+	a = document.getElementsByClassName("main")[0];
+	a.scrollIntoView({ behavior: 'smooth'});
+}
+
+</script>
+</body>
+</html>

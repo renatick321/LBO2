@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{title}}</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/media_queries.css' %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/media/images/icon.png" type="image">
+</head>
+<body>
+
+{% include "home/header.html" %}
+
+<div class="element section_title">
+	<h1>{{title}}</h1>
+	<!--
+	<select class="select_date">
+		<option value="Год">Год</option>
+		<option value="Месяц">Месяц</option>
+		<option value="День">День</option>
+		<option value="Час">Час</option>
+	</select>
+	-->
+</div>
+
+<div class="main_column element">
+
+	<header class="date_header">
+		<div onclick="todate(0)" class="date_item">Год</div>
+		<div onclick="todate(1)" class="date_item">Месяц</div>
+		<div onclick="todate(2)" class="date_item">Неделя</div>
+		<div class="date_line"></div>
+	</header>
+
+<div class="column_wraper">
+		{% for book in books %}
+{% include "home/book_from_list.html" %}
+	{% endfor %}
+</div>
+
+<div class="column_wraper">
+		{% for book in books %}
+{% include "home/book_from_list.html" %}
+	{% endfor %}
+</div>
+
+<div class="column_wraper">
+		{% for book in books %}
+{% include "home/book_from_list.html" %}
+	{% endfor %}
+</div>
+</div>
+
+
+<div class="second_column will_none">
+	<div class="discount element">
+		<h1>Скидка на:</h1>
+		<img src="/media/images/book3.jpg" alt="" class="img_slide">
+		<div class="img_title">Cупер хрень</div>
+		<div class="author_name">Молодой казак</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="{% static 'js/needed.js' %}"></script>
+<script type="text/javascript">
+	todate(1);
+	function todate(n) {
+		let a = document.getElementsByClassName("date_line")[0];
+		if (n == 0) {
+			a.style.left = 0;
+			a.style.width = "31.85px"
+			column[1].style.display = "none";
+			column[2].style.display = "none";
+			column[0].style.display = "block"
+		}
+		if (n == 1) {
+			a.style.left = "45.7px";
+			a.style.width = "60.3px"
+			column[0].style.display = "none";
+			column[2].style.display = "none";
+			column[1].style.display = "block"
+		}
+		if (n == 2) {
+			a.style.left = (190 - 69.76) + "px";
+			a.style.width = "69.76px"
+			column[0].style.display = "none";
+			column[1].style.display = "none";
+			column[2].style.display = "block"
+		}
+	}
+
+</script>
+</body>
+</html>

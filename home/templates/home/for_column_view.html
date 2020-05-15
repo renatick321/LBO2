@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{title}}</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/media_queries.css' %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/media/images/icon.png" type="image">
+</head>
+<body>
+
+{% include "home/header.html" %}
+
+
+<div class="element section_title">
+	<h1>{{title}}</h1>
+	<!--
+	<select class="select_date">
+		<option value="Год">Год</option>
+		<option value="Месяц">Месяц</option>
+		<option value="День">День</option>
+		<option value="Час">Час</option>
+	</select>
+	-->
+</div>
+
+<div class="main_column element">
+{% for book in books %}
+{% include "home/book_from_list.html" %}
+{% endfor %}
+</div>
+
+
+<div class="second_column will_none">
+	<div class="discount element">
+		<h1>Скидка на:</h1>
+		<img src="/media/images/book3.jpg" alt="" class="img_slide">
+		<div class="img_title">Cупер хрень</div>
+		<div class="author_name">Молодой казак</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="{% static 'js/needed.js' %}"></script>
+</body>
+</html>

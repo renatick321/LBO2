@@ -1,0 +1,8 @@
+{% extends "home/base.html" %}
+
+{% block main_content %}{% spaceless %}
+
+{% for tag in tags %}
+<a href="{% url 'home:get_tag' tag.slug %}" class="objects_list">{{tag}}</a>
+{% endfor %}
+{% endspaceless %}{% endblock %}

@@ -1,0 +1,15 @@
+<div class="book_wraper">
+	<div class="m slide" style="margin-right: 10px; width: auto;">
+		<a href="{% url 'home:book' book.id %}">
+			<img src="{{book.image.url}}" alt="" class="img_slide">
+		</a>
+	</div>
+	<div class="information">
+		<a href="{% url 'home:book' book.id %}" class="book_title">{{book.title}}</a><span class="status">{{book.status}}</span>
+		<a href="#" class="author_name">{{book.author_name}}</a>
+		<div class="book_genre">Жанры: {% for i in book.genres.all %}<a class="object_link" href="{% url 'home:get_genre' i.slug %}">{{i}}</a>{% endfor %}
+		</div>
+		<div class="book_tags">Теги: {% for i in book.tags.all %}<a class="object_link" href="{% url 'home:get_tag' i.slug %}">{{i}}</a>{% endfor %}</div>
+		<span>Серия: </span><a href="#" class="series" style="">Адская дрочильня</a>
+	</div>
+</div>

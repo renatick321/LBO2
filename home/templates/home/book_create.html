@@ -1,0 +1,33 @@
+{% extends "home/base.html" %}
+
+{% block main_content %}{% spaceless %}
+<form method="post" id="book_creation_form">
+{% csrf_token %}
+<ul class="book_create">
+	<li class="flex_column">
+		<label for="id_title">Название: </label>
+		<input type="text" name="title" maxlength="30" required id="id_title">
+	</li>
+	<li class="flex_column">
+		<label for="id_image">Изображение: </label>
+		<input type="file" name="image" accept="image/*" id="id_image">
+	</li>
+	<li class="flex_column">
+		<label for="id_price">Цена: </label>
+		<input type="number" name="price" required id="id_price">
+	</li>
+	<li class="flex_column">
+		<label for="id_tags">Теги: </label>
+		<select name="tags" id="id_tags" multiple></select>
+	</li>
+	<li class="flex_column">
+		<label for="id_genre">Жанр: </label>
+		<select name="genre" id="id_genre" multiple></select>
+	</li>
+	<li class="flex_column">
+		<label for="id_description">Описание: </label>
+		<textarea name="description" maxlength="1000" required form="book_creation_form" id="id_description"></textarea>
+	</li>
+</ul>
+</form>
+{% endspaceless %}{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'home/base.html' %}
+
+{% block main_content %}{% spaceless %}
+
+
+<div class="book">
+	<div class="slide">
+		<img src="{{book.image.url}}" alt="" class="img_in_book">
+		<a href="{% url 'home:chapter' book.id '1' %}" class="read element book_button" style="display: block;">Читать</a>
+		<div class="price element book_button">{{book.price}}p.</div>
+	</div>
+	<div class="information">
+		<a href="#" class="book_title">{{book.title}}</a><span class="status">В процессе</span>
+		<a href="#" class="author_name">{{book.author_name}}</a>
+		<span>Серия: </span><a href="#" class="series" style="">Адская дрочильня</a>
+		<div class="book_genre">Жанры: {% for i in book.genres.all %}<a class="object_link" href="{% url 'home:get_genre' i.slug %}">{{i}}</a>{% endfor %}
+		</div>
+		<div class="book_tags">Теги: {% for i in book.tags.all %}<a class="object_link" href="{% url 'home:get_tag' i.slug %}">{{i}}</a>{% endfor %}</div>
+		<div class="description">Описание: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, unde, recusandae. Officia delectus modi incidunt corporis iure aspernatur, culpa nihil? Quibusdam nam enim quaerat. Amet omnis nesciunt aspernatur dolorum minus vel, illo. Earum voluptate, deleniti hic dolor in repellendus facilis beatae praesentium aut voluptatem similique laboriosam quae vitae laborum aspernatur eius eos vel ex corrupti cupiditate nesciunt molestias. Repudiandae ab veritatis, omnis similique nulla eligendi atque explicabo laboriosam, illo dicta libero deleniti totam tempora quam temporibus laudantium ducimus eum sapiente quidem reiciendis odio adipisci! Tempora excepturi quae fuga totam cumque, sequi aut itaque sapiente, illo ex unde error dolores consequatur?</div>
+	</div>
+</div>
+
+	<div class="all_chapters">
+		<header class="chapter_header">
+			<h7 id="headings" onclick="chapter_header(0)">ОГЛАВЛЕНИЯ</h7>
+			<h7 id="updates" onclick="chapter_header(1)">ОБНОВЛЕНИЯ</h7>
+		</header>
+		<div class="triangle"></div>
+		<div class="chapters_wraper">
+			{% for chapter in chapters %}
+			<div class="chapter">
+				<span class="back_inf">Была добавлена глава: </span><a class="chapter_link" href="{% url 'home:chapter' book.id chapter.number %}">Глава {{chapter.number}}: {{chapter.title}}</a>
+				<div style="font-size: 14px;">{{chapter.pub_date}}</div>
+			</div>
+			{% endfor %}
+		</div>
+		<div class="chapters_wraper" style="display: none;">
+			{% for chapter in chapters_ %}
+			<div class="chapter" style="display: flex;">
+				<a class="chapter_link" href="{% url 'home:chapter' book.id chapter.number %}">Глава {{chapter.number}}: {{chapter.title}}</a>
+				<div class="back_inf" style="position: absolute; right: 30px;">{{chapter.pub_date}}</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+
+{% endspaceless %}{% endblock %}

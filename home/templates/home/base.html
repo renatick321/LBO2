@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LBO</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/media_queries.css' %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/media/images/icon.png" type="image">
+</head>
+<body>
+
+{% include "home/header.html" %}
+<div class="main_column element">
+
+{% block main_content %}{% endblock %}
+
+</div>
+
+
+<div class="second_column">
+	{% block second_column %}
+	<div class="discount element">
+		<h1>Скидка на:</h1>
+		<img src="/media/images/book3.jpg" alt="" class="img_slide">
+		<div class="img_title">Cупер хрень</div>
+		<div class="author_name">Молодой казак</div>
+	</div>
+	{% endblock %}
+</div>
+
+<script type="text/javascript" src="{% static 'js/js.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/needed.js' %}"></script>
+</body>
+</html>
